@@ -1,0 +1,25 @@
+@font-face {
+  font-family: titleFont;
+  src: url("/assets/Anton-Regular.ttf");
+}
+
+#mainTitle {
+  font-family: titleFont;
+  font-size: 60px;
+  font-kerning: normal;
+  line-height: 1em;
+  color: rgb(26,86,49)
+}
+
+#gglogo {
+  padding-top: 10%;
+}
+.box-2 {
+
+}
+.socialIcon {
+  padding: 10px 10px;
+  width: 60px;
+  height: 60px;
+  display: block;
+}
