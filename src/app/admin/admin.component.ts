@@ -8,18 +8,13 @@ import { RestServiceService } from '../rest-service.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  private rest: RestServiceService;
 
-  constructor() {
+  constructor(
+    private rest: RestServiceService
+  ) { }
 
-  }
-
-  ngOnInit() {
-  }
-
-  submit(employeeForm: NgForm) {
-    console.log(employeeForm.value, employeeForm.valid);
-    this.rest.post('course', employeeForm.form.value)
+  ngOnInit(): void {
+    this.rest.get('employees')
       .subscribe(
         (result) =>{
           console.log(result)
@@ -30,28 +25,18 @@ export class AdminComponent implements OnInit {
       )
   }
 
-  // ngOnInit(): void {
-  //   this.rest.get('login')
-  //     .subscribe(
-  //       (result) =>{
-  //         console.log(result)
-  //       },
-  //       (error) =>{
-  //         console.log(error)
-  //       }
-  //     )
-  // }
-  //
-  // submit(emailForm: NgForm) {
-  //   console.log(emailForm.value, emailForm.valid);
-  //   this.rest.post('login', emailForm.form.value)
-  //     .subscribe(
-  //       (result) =>{
-  //         console.log(result)
-  //       },
-  //       (error) =>{
-  //         console.log(error)
-  //       }
-  //     )
-  // }
+  submit(employeeForm: NgForm) {
+    console.log(employeeForm.value, employeeForm.valid);
+    console.log(employeeForm.form.value);
+    this.rest.post('employees', employeeForm.form.value)
+      .subscribe(
+        (result) =>{
+          console.log(result)
+        },
+        (error) =>{
+          console.log(error)
+        }
+      )
+  }
 }
+

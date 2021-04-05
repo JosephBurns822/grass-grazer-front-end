@@ -1,52 +1,53 @@
-<form class="employee-form" #employeeForm="ngForm">
-  <div class="mb-3">
-    <label for="empLName" class="form-label" name="lName" ngModel #lName="ngModel">Employee Last Name</label>
-    <input type="name" class="form-control" id="empLName" required placeholder="Last Name">
-    <mat-error *ngIf="lName.errors?.required">Semester is Required!</mat-error>
-  </div>
-  <div class="mb-3">
-    <label for="empFName" class="form-label">Employee First Name</label>
-    <input type="name" class="form-control" id="empFName" required placeholder="First Name" >
-  </div>
-  <div class="mb-3">
-    <label for="empPosition" class="form-label">Employee Position</label>
-    <input type="name" class="form-control" id="empPosition" required placeholder="Position">
-  </div>
-  <div class="mb-3">
-    <label for="empPhoneNumber" class="form-label">Employee Phone Number</label>
-    <input type="name" class="form-control" id="empPhoneNumber" required placeholder="(###) ###-####">
-  </div>
-  <div class="mb-3">
-    <label for="empHireDate">Employee Hire Date</label>
-    <input type="date" required id="empHireDate">
-  </div>
-  <div class="mb-3">
-    <label for="empFinalDate">Employee Final Date</label>
-    <input type="date" id="empFinalDate">
-  </div>
-  <div class="mb-3">
-    <label for="empPayRate" class="form-label">Employee Pay Rate</label>
-    <input type="name" class="form-control" id="empPayRate" required placeholder="$##.##">
-  </div>
-  <div class="mb-3">
-    <label for="empAdmin" class="form-label">Employee Admin</label>
-    <input type="name" class="form-control" id="empAdmin" required placeholder="(###) ###-####">
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-    <label class="form-check-label" for="flexRadioDefault1">
-      Not Admin
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-    <label class="form-check-label" for="flexRadioDefault2">
-      Admin
-    </label>
-  </div>
-  <button type="button" class="btn btn-secondary" (click)="submit(employeeForm)>Submit</button>
-</form>
-
-
-
-
+<mat-card class="employee-admin">
+  <mat-card-content>
+    <form class="employee-form" #employeeForm="ngForm">
+      <div class="mb-3">
+        <label for="empLName" class="form-label" >Employee Last Name</label>
+        <input type="text" class="form-control" id="empLName" name="employeeslastname" ngModel #lName="ngModel" placeholder="Last Name" required>
+        <mat-error *ngIf="lName.errors?.required">Employee Last name is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="empFName" class="form-label" >Employee First Name</label>
+        <input type="text" class="form-control" id="empFName" name="employeesfirstname" ngModel #fName="ngModel" placeholder="First Name" required>
+        <mat-error *ngIf="fName.errors?.required">Employee First name is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="empPosition" class="form-label" >Employee Position</label>
+        <input type="text" class="form-control" id="empPosition" name="employeesposition" ngModel #ePos="ngModel" placeholder="Position" required>
+        <mat-error *ngIf="ePos.errors?.required">Employee Position is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="empHireDate" >Employee Hire Date</label>
+        <input type="date" id="empHireDate" name="employeeshiredate" ngModel #eHireDate="ngModel" required>
+        <mat-error *ngIf="eHireDate.errors?.required">Employee Hire Date is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="empFinalDate">Employee Final Date</label>
+        <input type="date" id="empFinalDate" name="employeesfinaldate">
+      </div>
+      <div class="mb-3">
+        <label for="empPayRate" class="form-label" >Employee Pay Rate</label>
+        <input type="number" class="form-control" id="empPayRate" name="employeespayrate" ngModel #ePayRate="ngModel" placeholder="##.##" required>
+        <mat-error *ngIf="ePayRate.errors?.required">Employee Pay Rate is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="empPhoneNumber" class="form-label" >Employee Phone Number</label>
+        <input type="text" class="form-control" id="empPhoneNumber" name="employeesphonenumber" ngModel #ePhone="ngModel" placeholder="(###) ###-####" required>
+        <mat-error *ngIf="ePhone.errors?.required">Employee Phone Number is Required!</mat-error>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="employeesadmin" id="flexRadioDefault1" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          Not Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="employeesadmin" id="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">
+          Admin
+        </label>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="submit(employeeForm)">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

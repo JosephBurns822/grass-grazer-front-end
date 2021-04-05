@@ -1,0 +1,26 @@
+<mat-card class="inventory-admin">
+  <mat-card-content>
+    <form class="inventory-form" #inventoryForm="ngForm">
+      <div class="mb-3">
+        <label for="proName" class="form-label" name="pName" ngModel #pName="ngModel">Product Name</label>
+        <input type="name" class="form-control" id="proName" required placeholder="Product Name">
+        <mat-error *ngIf="pName.errors?.required">Last name is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="proPrice" class="form-label" name="pPrice" ngModel #pPrice="ngModel">Product Price</label>
+        <input type="name" class="form-control" id="proPrice" required placeholder="$#####.##">
+        <mat-error *ngIf="pPrice.errors?.required">Product Price is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="proDesc" class="form-label" ngModel #pDesc="ngModel">Product Description</label>
+        <input type="name" class="form-control" id="proDesc">
+      </div>
+      <div class="mb-3">
+        <label for="proQuantity" class="form-label" ngModel #pQuant="ngModel">Product Quantity</label>
+        <input type="name" class="form-control" id="proQuantity" required>
+        <mat-error *ngIf="pQuant.errors?.required">Product Quantity is Required!</mat-error>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="submit(inventoryForm)">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

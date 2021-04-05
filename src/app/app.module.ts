@@ -28,6 +28,10 @@ import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-ap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminCustomerComponent } from './admin-customer/admin-customer.component';
+import { AdminInventoryComponent } from './admin-inventory/admin-inventory.component';
+import { AdminVehicleComponent } from './admin-vehicle/admin-vehicle.component';
+import { AdminSupplierComponent } from './admin-supplier/admin-supplier.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { AdminComponent } from './admin/admin.component';
     InformationGuideComponent,
     ScheduleAppointmentComponent,
     HomeComponent,
-    AdminComponent
+    AdminComponent,
+    AdminCustomerComponent,
+    AdminInventoryComponent,
+    AdminVehicleComponent,
+    AdminSupplierComponent
   ],
   imports: [
     MatTableModule,

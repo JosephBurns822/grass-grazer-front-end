@@ -1,0 +1,38 @@
+<mat-card class="supplier-admin">
+  <mat-card-content>
+    <form class="supplier-form" #supplierForm="ngForm">
+      <div class="mb-3">
+        <label for="supName" class="form-label">Supplier Name</label>
+        <input type="name" class="form-control" id="supName"name="suppliername" ngModel #sName="ngModel" placeholder="Supplier Name" required>
+        <mat-error *ngIf="sName.errors?.required">Supplier Name is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="supAddress" class="form-label">Supplier Address</label>
+        <input type="name" class="form-control" id="supAddress" name="supplieraddress1" ngModel #sAddress="ngModel" placeholder="Supplier Address" required>
+        <mat-error *ngIf="sAddress.errors?.required">Supplier Address is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="supAddress2" class="form-label">Supplier Address 2</label>
+        <input type="name" class="form-control" id="supAddress2" name="supplieraddress2" ngModel placeholder="Extra Address">
+      </div>
+      <div class="mb-3">
+        <label for="empPhoneNumber" class="form-label">Supplier Phone Number</label>
+        <input type="name" class="form-control" id="empPhoneNumber" name="supplierphonenumber" ngModel #ePhone="ngModel"placeholder="(###) ###-####" required>
+        <mat-error *ngIf="ePhone.errors?.required">Employee Phone Number is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="supEmail" class="form-label">Supplier Email Address</label>
+        <input type="name" class="form-control" id="supEmail" name="supplieremailaddress" ngModel #sEmail="ngModel" placeholder="Supplier Email Address" required>
+        <mat-error *ngIf="sEmail.errors?.required">Supplier Email Address is Required!</mat-error>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="submit(supplierForm)">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<button type="button" class="btn btn-secondary" (click)="search(supplierForm)">Search</button>
+
+<p *ngIf="searchResults.length == 0">No data found</p>
+<ul *ngIf="searchResults.length > 0">
+  <li *ngFor="let result of this.searchResults">{{ result.suppliername }}</li>
+</ul>

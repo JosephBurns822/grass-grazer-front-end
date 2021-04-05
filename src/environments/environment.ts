@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: undefined
+  baseUrl: 'https://powerful-reaches-65138.herokuapp.com/'
 };
 
 /*
