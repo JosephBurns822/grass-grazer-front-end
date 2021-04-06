@@ -1,4 +1,5 @@
 <mat-card class="customer-admin">
+  <mat-card-title>Insert Customer</mat-card-title>
   <mat-card-content>
     <form class="customer-form" #customerForm="ngForm">
       <div class="mb-3">
@@ -47,6 +48,55 @@
         </label>
       </div>
       <button type="button" class="btn btn-secondary" name="submitButton" (click)="submit(customerForm)">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="customer-admin">
+  <mat-card-title>Search Customer</mat-card-title>
+  <mat-card-content>
+    <form class="customer-form" #searchCustomerForm="ngForm">
+      <div class="mb-3">
+        <label for="searchCusLName" class="form-label">Customer Last Name</label>
+        <input type="text" class="form-control" id="searchCusLName" name="customerlastname" ngModel #cLName="ngModel" placeholder="Last Name">
+      </div>
+      <div class="mb-3">
+        <label for="searchCusFName" class="form-label" >Customer First Name</label>
+        <input type="text" class="form-control" id="searchCusFName" name="customerfirstname" ngModel #cFName="ngModel" placeholder="First Name">
+      </div>
+      <div class="mb-3">
+        <label for="searchCusPhoneNumber" class="form-label" >Customer Phone Number</label>
+        <input type="text" class="form-control" id="searchCusPhoneNumber" name="customerphonenumber" ngModel #cPhone="ngModel" placeholder="(###) ###-####">
+      </div>
+      <div class="mb-3">
+        <label for="searchCusAddress" class="form-label" >Customer Address</label>
+        <input type="text" class="form-control" id="searchCusAddress" name="customeraddress1" ngModel #cAddress="ngModel" placeholder="Address">
+      </div>
+      <div class="mb-3">
+        <label for="searchCusAddress2">Customer Address 2</label>
+        <input type="text" class="form-control" id="searchCusAddress2" name="customeraddress2" ngModel  #cAddress2="ngModel" placeholder="Address">
+      </div>
+      <div class="mb-3">
+        <label for="searchCusBusiness" class="form-label" >Customer Business Name</label>
+        <input type="text" class="form-control" id="searchCusBusiness" name="customerbusinessname" ngModel #cBusiness="ngModel">
+      </div>
+      <div class="mb-3">
+        <label for="searchCusEmail" class="form-label" >Customer Email Address</label>
+        <input type="text" class="form-control" id="searchCusEmail" name="customeremailaddress" ngModel #cEmail="ngModel">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="flexRadioDefault3" value=0 ngModel name="customerpropertyviewing" checked>
+        <label class="form-check-label" for="flexRadioDefault3">
+          Property Not Viewed
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="flexRadioDefault4" value=1 ngModel name="customerpropertyviewing">
+        <label class="form-check-label" for="flexRadioDefault4">
+          Property Viewed
+        </label>
+      </div>
+      <button type="button" class="btn btn-secondary" name="submitButton" (click)="submit(searchCustomerForm)">Submit</button>
     </form>
   </mat-card-content>
 </mat-card>

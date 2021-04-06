@@ -40,17 +40,14 @@ export class AdminSupplierComponent implements OnInit {
       )
   }
 
-  search(supplierForm: NgForm) {
+  search(searchSupplierForm: NgForm) {
     this.searchResults = [];
-    console.log(supplierForm)
+    console.log(searchSupplierForm)
     for (let i = 0; i < this.supplierList.length; i++) {
       let selected: any = this.supplierList[i];
-      if(selected.name.toLowerCase() === supplierForm.form.controls["suppliername"].value.toLowerCase()){
+      if(selected.name.toLowerCase() === searchSupplierForm.form.controls["suppliername"].value.toLowerCase()){
         this.searchResults.push(selected)
       }
     }
   }
-
-
-
 }

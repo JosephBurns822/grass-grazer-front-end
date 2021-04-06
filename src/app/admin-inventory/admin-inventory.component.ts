@@ -8,6 +8,8 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./admin-inventory.component.css']
 })
 export class AdminInventoryComponent implements OnInit {
+  inventoryList: any[] = [];
+  searchResults: any[] = [];
 
   constructor(
     private rest: RestServiceService
@@ -38,5 +40,15 @@ export class AdminInventoryComponent implements OnInit {
           console.log(error)
         }
       )
+  }
+  search(searchInventoryForm: NgForm) {
+    this.searchResults = [];
+    console.log(searchInventoryForm)
+    for (let i = 0; i < this.inventoryList.length; i++) {
+      let selected: any = this.inventoryList[i];
+      if(selected.name.toLowerCase() === searchInventoryForm.form.controls["productsname"].value.toLowerCase()){
+        this.searchResults.push(selected)
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 <mat-card class="employee-admin">
+  <mat-card-title>Insert Employee</mat-card-title>
   <mat-card-content>
     <form class="employee-form" #employeeForm="ngForm">
       <div class="mb-3">
@@ -49,5 +50,58 @@
       </div>
       <button type="button" class="btn btn-secondary" (click)="submit(employeeForm)">Submit</button>
     </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="employee-admin">
+  <mat-card-title>Search Employee</mat-card-title>
+  <mat-card-content>
+    <form class="employee-form" #searchEmployeeForm="ngForm">
+      <div class="mb-3">
+        <label for="searchEmpLName" class="form-label" >Employee Last Name</label>
+        <input type="text" class="form-control" id="searchEmpLName" name="employeeslastname" ngModel #lName="ngModel" placeholder="Last Name">
+      </div>
+      <div class="mb-3">
+        <label for="searchEmpFName" class="form-label" >Employee First Name</label>
+        <input type="text" class="form-control" id="searchEmpFName" name="employeesfirstname" ngModel #fName="ngModel" placeholder="First Name">
+      </div>
+      <div class="mb-3">
+        <label for="searchEmpPosition" class="form-label" >Employee Position</label>
+        <input type="text" class="form-control" id="searchEmpPosition" name="employeesposition" ngModel #ePos="ngModel" placeholder="Position">
+      </div>
+      <div class="mb-3">
+        <label for="searchEmpHireDate" >Employee Hire Date</label>
+        <input type="date" id="searchEmpHireDate" name="employeeshiredate" ngModel #eHireDate="ngModel">
+      </div>
+      <div class="mb-3">
+        <label for="searchEmpFinalDate">Employee Final Date</label>
+        <input type="date" id="searchEmpFinalDate" name="employeesfinaldate">
+      </div>
+      <div class="mb-3">
+        <label for="searchEmpPayRate" class="form-label" >Employee Pay Rate</label>
+        <input type="number" class="form-control" id="searchEmpPayRate" name="employeespayrate" ngModel #ePayRate="ngModel" placeholder="##.##">
+      </div>
+      <div class="mb-3">
+        <label for="searchEmpPhoneNumber" class="form-label" >Employee Phone Number</label>
+        <input type="text" class="form-control" id="searchEmpPhoneNumber" name="employeesphonenumber" ngModel #ePhone="ngModel" placeholder="(###) ###-####">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="employeesadmin" id="flexRadioDefault3" checked>
+        <label class="form-check-label" for="flexRadioDefault3">
+          Not Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="employeesadmin" id="flexRadioDefault4" >
+        <label class="form-check-label" for="flexRadioDefault4">
+          Admin
+        </label>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="search(searchEmployeeForm)">Search</button>
+    </form>
+    <p *ngIf="searchResults.length == 0">No data found</p>
+    <ul *ngIf="searchResults.length > 0">
+      <li *ngFor="let result of this.searchResults">{{ result.employeename }}</li>
+    </ul>
   </mat-card-content>
 </mat-card>

@@ -1,4 +1,5 @@
 <mat-card class="vehicle-admin">
+  <mat-card-title>Insert Vehicle</mat-card-title>
   <mat-card-content>
     <form class="vehicle-form" #vehicleForm="ngForm">
       <div class="mb-3">
@@ -32,5 +33,42 @@
       </div>
       <button type="button" class="btn btn-secondary" (click)="submit(vehicleForm)">Submit</button>
     </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="vehicle-admin">
+  <mat-card-title>Search Vehicle</mat-card-title>
+  <mat-card-content>
+    <form class="vehicle-form" #searchVehicleForm="ngForm">
+      <div class="mb-3">
+        <label for="vehSearchYear" class="form-label">Vehicle Year</label>
+        <input type="number" class="form-control" id="vehSearchYear" name="vehicleyear" ngModel #vYear="ngModel" placeholder="####">
+      </div>
+      <div class="mb-3">
+        <label for="vehSearchMake" class="form-label" >Vehicle Make</label>
+        <input type="text" class="form-control" id="vehSearchMake" name="vehiclemake" ngModel #vMake="ngModel" placeholder="Vehicle Make">
+      </div>
+      <div class="mb-3">
+        <label for="vehSearchModel" class="form-label">Vehicle Model</label>
+        <input type="text" class="form-control" id="vehSearchModel" name="vehiclemodel" ngModel #vModel="ngModel" placeholder="Vehicle Model">
+      </div>
+      <div class="mb-3">
+        <label for="vehSearchColor" class="form-label">Vehicle Color</label>
+        <input type="text" class="form-control" id="vehSearchColor" name="vehiclecolor" ngModel #vColor="ngModel" placeholder="Vehicle Color">
+      </div>
+      <div class="mb-3">
+        <label for="vehSearchMileage" class="form-label">Vehicle Mileage</label>
+        <input type="number" class="form-control" id="vehSearchMileage" name="vehiclemileage" ngModel #vMileage="ngModel" placeholder="######">
+      </div>
+      <div class="mb-3">
+        <label for="vehSearchWho" class="form-label">Vehicle Who?</label>
+        <input type="text" class="form-control" id="vehSearchWho" name="vehiclewho" ngModel #vWho="ngModel">
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="search(searchVehicleForm)">Search</button>
+    </form>
+    <p *ngIf="searchResults.length == 0">No data found</p>
+    <ul *ngIf="searchResults.length > 0">
+      <li *ngFor="let result of this.searchResults">{{ result.vehicleyear }}</li>
+    </ul>
   </mat-card-content>
 </mat-card>

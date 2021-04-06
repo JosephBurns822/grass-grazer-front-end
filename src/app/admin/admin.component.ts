@@ -8,6 +8,8 @@ import { RestServiceService } from '../rest-service.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  employeeList: any[] = [];
+  searchResults: any[] = [];
 
   constructor(
     private rest: RestServiceService
@@ -37,6 +39,16 @@ export class AdminComponent implements OnInit {
           console.log(error)
         }
       )
+  }
+  search(searchEmployeeForm: NgForm) {
+    this.searchResults = [];
+    console.log(searchEmployeeForm)
+    for (let i = 0; i < this.employeeList.length; i++) {
+      let selected: any = this.employeeList[i];
+      if(selected.name.toLowerCase() === searchEmployeeForm.form.controls["employeename"].value.toLowerCase()){
+        this.searchResults.push(selected)
+      }
+    }
   }
 }
 

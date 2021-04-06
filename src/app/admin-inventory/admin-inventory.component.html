@@ -1,26 +1,56 @@
 <mat-card class="inventory-admin">
+  <mat-card-title>Insert Inventory</mat-card-title>
   <mat-card-content>
     <form class="inventory-form" #inventoryForm="ngForm">
       <div class="mb-3">
-        <label for="proName" class="form-label" name="pName" ngModel #pName="ngModel">Product Name</label>
-        <input type="name" class="form-control" id="proName" required placeholder="Product Name">
+        <label for="proName" class="form-label">Product Name</label>
+        <input type="name" class="form-control" id="proName" name="productsname" ngModel #pName="ngModel" placeholder="Product Name" required>
         <mat-error *ngIf="pName.errors?.required">Last name is Required!</mat-error>
       </div>
       <div class="mb-3">
-        <label for="proPrice" class="form-label" name="pPrice" ngModel #pPrice="ngModel">Product Price</label>
-        <input type="name" class="form-control" id="proPrice" required placeholder="$#####.##">
+        <label for="proPrice" class="form-label">Product Price</label>
+        <input type="name" class="form-control" id="proPrice" name="productsprice" ngModel #pPrice="ngModel" placeholder="$#####.##" required>
         <mat-error *ngIf="pPrice.errors?.required">Product Price is Required!</mat-error>
       </div>
       <div class="mb-3">
-        <label for="proDesc" class="form-label" ngModel #pDesc="ngModel">Product Description</label>
-        <input type="name" class="form-control" id="proDesc">
+        <label for="proDesc" class="form-label" >Product Description</label>
+        <input type="name" class="form-control" id="proDesc" name="productsdescription" ngModel #pDesc="ngModel">
       </div>
       <div class="mb-3">
-        <label for="proQuantity" class="form-label" ngModel #pQuant="ngModel">Product Quantity</label>
-        <input type="name" class="form-control" id="proQuantity" required>
+        <label for="proQuantity" class="form-label" >Product Quantity</label>
+        <input type="name" class="form-control" id="proQuantity" name="productquantity" ngModel #pQuant="ngModel" placeholder="#####" required>
         <mat-error *ngIf="pQuant.errors?.required">Product Quantity is Required!</mat-error>
       </div>
       <button type="button" class="btn btn-secondary" (click)="submit(inventoryForm)">Submit</button>
     </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="inventory-admin">
+  <mat-card-title>Search Inventory</mat-card-title>
+  <mat-card-content>
+    <form class="inventory-form" #searchInventoryForm="ngForm">
+      <div class="mb-3">
+        <label for="searchProName" class="form-label">Product Name</label>
+        <input type="name" class="form-control" id="searchProName" name="productsname" ngModel #pName="ngModel" placeholder="Product Name" required>
+      </div>
+      <div class="mb-3">
+        <label for="searchProPrice" class="form-label">Product Price</label>
+        <input type="name" class="form-control" id="searchProPrice" name="productsprice" ngModel #pPrice="ngModel" placeholder="$#####.##" required>
+      </div>
+      <div class="mb-3">
+        <label for="searchProDesc" class="form-label" >Product Description</label>
+        <input type="name" class="form-control" id="searchProDesc" name="productsdescription" ngModel #pDesc="ngModel">
+      </div>
+      <div class="mb-3">
+        <label for="searchProQuantity" class="form-label" >Product Quantity</label>
+        <input type="name" class="form-control" id="searchProQuantity" name="productquantity" ngModel #pQuant="ngModel" placeholder="#####" required>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="search(searchInventoryForm)">Search</button>
+    </form>
+    <p *ngIf="searchResults.length == 0">No data found</p>
+    <ul *ngIf="searchResults.length > 0">
+      <li *ngFor="let result of this.searchResults">{{ result.productsname }}</li>
+    </ul>
   </mat-card-content>
 </mat-card>
