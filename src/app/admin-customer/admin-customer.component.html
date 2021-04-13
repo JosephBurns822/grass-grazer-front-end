@@ -96,7 +96,11 @@
           Property Viewed
         </label>
       </div>
-      <button type="button" class="btn btn-secondary" name="submitButton" (click)="submit(searchCustomerForm)">Submit</button>
+      <button type="button" class="btn btn-secondary" name="submitButton" (click)="search(searchCustomerForm)">Search</button>
     </form>
+    <p *ngIf="searchResults.length == 0">No data found</p>
+    <ul *ngIf="searchResults.length > 0">
+      <li *ngFor="let result of this.searchResults">{{ result.customerlastname }} | {{ result.customerfirstname }} | {{ result.customerphonenumber }} | {{result.customeraddress1 }} | {{ result.customeraddress2 }} | {{ result.customerbusinessname }} | {{ result.customeremailaddress }} | {{ result.customerpropertyviewing }}</li>
+    </ul>
   </mat-card-content>
 </mat-card>

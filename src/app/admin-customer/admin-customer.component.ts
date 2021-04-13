@@ -18,8 +18,9 @@ export class AdminCustomerComponent implements OnInit {
   ngOnInit(): void {
     this.rest.get('customer')
       .subscribe(
-        (result) =>{
-          console.log(result)
+        (next:any) =>{
+          this.customerList = next;
+          console.log(this.customerList)
         },
         (error) =>{
           console.log(error)
@@ -41,11 +42,19 @@ export class AdminCustomerComponent implements OnInit {
   }
 
   search(searchCustomerForm: NgForm) {
-    this.searchResults = [];
+    this.searchResults = []
     console.log(searchCustomerForm)
     for (let i = 0; i < this.customerList.length; i++) {
       let selected: any = this.customerList[i];
-      if(selected.name.toLowerCase() === searchCustomerForm.form.controls["customername"].value.toLowerCase()){
+      if(
+        (selected.customerlastname.toLowerCase().includes(searchCustomerForm.form.controls["customerlastname"].value.toLowerCase()) && searchCustomerForm.form.controls["customerlastname"].value != "") ||
+        (selected.customerfirstname.toLowerCase().includes(searchCustomerForm.form.controls["customerfirstname"].value.toLowerCase()) && searchCustomerForm.form.controls["customerfirstname"].value != "") ||
+        (selected.customerphonenumber.toLowerCase().includes(searchCustomerForm.form.controls["customerphonenumber"].value.toLowerCase()) && searchCustomerForm.form.controls["customerphonenumber"].value != "") ||
+        (selected.customeraddress1.toLowerCase().includes(searchCustomerForm.form.controls["customeraddress1"].value.toLowerCase()) && searchCustomerForm.form.controls["customeraddress1"].value != "") ||
+        (selected.customeraddress2.toLowerCase().includes(searchCustomerForm.form.controls["customeraddress2"].value.toLowerCase()) && searchCustomerForm.form.controls["customeraddress2"].value != "") ||
+        (selected.customerbusinessname.toLowerCase().includes(searchCustomerForm.form.controls["customerbusinessname"].value.toLowerCase()) && searchCustomerForm.form.controls["customerbusinessname"].value != "") ||
+        (selected.customerbusinessname.toLowerCase().includes(searchCustomerForm.form.controls["customeremailaddress"].value.toLowerCase()) && searchCustomerForm.form.controls["customeremailaddress"].value != "") ||
+        selected.customerpropertyviewing == searchCustomerForm.form.controls["customerpropertyviewing"].value && searchCustomerForm.form.controls["customerpropertyviewing"].value != ""){
         this.searchResults.push(selected)
       }
     }

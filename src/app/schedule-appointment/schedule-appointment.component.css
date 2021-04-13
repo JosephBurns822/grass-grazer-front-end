@@ -1,0 +1,24 @@
+mat-card-title{
+  text-align: center;
+  padding-bottom: 2%;
+}
+form {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2%;
+}
+
+footerRow {
+  padding-left: 10%;
+}
+
+#contactInfo {
+  text-align: center;
+  padding-top: 8%;
+}
+
+#leaf {
+  padding-top: 5%;
+  padding-right: 12%;
+  padding-bottom: 25%;
+}

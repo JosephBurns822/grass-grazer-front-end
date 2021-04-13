@@ -19,6 +19,7 @@ export class AdminSupplierComponent implements OnInit {
     this.rest.get('supplier')
       .subscribe(
         (next:any) =>{
+          this.supplierList = next;
           console.log(this.supplierList)
         },
         (error) =>{
@@ -45,7 +46,11 @@ export class AdminSupplierComponent implements OnInit {
     console.log(searchSupplierForm)
     for (let i = 0; i < this.supplierList.length; i++) {
       let selected: any = this.supplierList[i];
-      if(selected.name.toLowerCase() === searchSupplierForm.form.controls["suppliername"].value.toLowerCase()){
+      if((selected.suppliername.toLowerCase().includes(searchSupplierForm.form.controls["suppliername"].value.toLowerCase()) && searchSupplierForm.form.controls["suppliername"].value != "") ||
+        (selected.supplierphonenumber.toLowerCase().includes(searchSupplierForm.form.controls["supplierphonenumber"].value.toLowerCase()) && searchSupplierForm.form.controls["supplierphonenumber"].value != "") ||
+        (selected.supplieraddress1.toLowerCase().includes(searchSupplierForm.form.controls["supplieraddress1"].value.toLowerCase()) && searchSupplierForm.form.controls["supplieraddress1"].value != "") ||
+        (selected.supplieraddress2.toLowerCase().includes(searchSupplierForm.form.controls["supplieraddress2"].value.toLowerCase()) && searchSupplierForm.form.controls["supplieraddress2"].value != "") ||
+        (selected.supplieremailaddress.toLowerCase().includes(searchSupplierForm.form.controls["supplieremailaddress"].value.toLowerCase()) && searchSupplierForm.form.controls["supplieremailaddress"].value != "")) {
         this.searchResults.push(selected)
       }
     }

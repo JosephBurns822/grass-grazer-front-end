@@ -1,1 +1,69 @@
-<p>schedule-appointment works!</p>
+<mat-card class="appointment-scheduler">
+  <mat-card-title>Appointment Form</mat-card-title>
+  <mat-card-content>
+    <form class="supplier-form" #appointmentForm="ngForm">
+      <div class="mb-3">
+        <label for="appFName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="appFName"name="appointmentfirstname" ngModel #aFName="ngModel" placeholder="First Name" required>
+        <mat-error *ngIf="aFName.errors?.required">Supplier Name is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appLName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="appLName" name="appointmentlastname" ngModel #aLName="ngModel" placeholder="Last Name" required>
+        <mat-error *ngIf="aLName.errors?.required">Supplier Address is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="appAddress" name="appointmentaddress" ngModel #aAddress="ngModel" placeholder="Address">
+        <mat-error *ngIf="aAddress.errors?.required">Address is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="appCity" name="appointmentcity" ngModel #aCity="ngModel" placeholder="City">
+        <mat-error *ngIf="aCity.errors?.required">City is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appState" class="form-label">State</label>
+        <input type="text" class="form-control" id="appState" name="appointmentstate" ngModel #aState="ngModel" placeholder="State">
+        <mat-error *ngIf="aState.errors?.required">State is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appZip" class="form-label">Zip Code</label>
+        <input type="text" class="form-control" id="appZip" name="appointzipcode" ngModel #aZip="ngModel" placeholder="Zip Code">
+        <mat-error *ngIf="aZip.errors?.required">Zip Code is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appPhoneNumber" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="appPhoneNumber" name="appointmentphonenumber" ngModel #aPhone="ngModel"placeholder="(###) ###-####" required>
+        <mat-error *ngIf="aPhone.errors?.required">Phone Number is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appEmail" class="form-label">Email Address</label>
+        <input type="text" class="form-control" id="appEmail" name="supplieremailaddress" ngModel #aEmail="ngModel" placeholder="Email Address" required>
+        <mat-error *ngIf="aEmail.errors?.required">Email Address is Required!</mat-error>
+      </div>
+      <div class="mb-3">
+        <label for="appDesc" class="form-label">Description/Comments</label>
+        <input type="text" class="form-control" id="appDesc" name="appointmentdescription" ngModel>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="submit(appointmentForm)">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<footer>
+  <div class="container">
+    <div class="row" id="footerRow">
+      <div class="col">
+        <img class="img-fluid" src="assets/frame.png">
+      </div>
+      <div class="col-6" id="contactInfo">
+        7524 Highway 707, Myrtle Beach SC 29588 <br>
+        (843) 888-8888
+      </div>
+      <div class="col">
+        <img class="img-fluid" src="assets/Leaf1.png" id="leaf">
+      </div>
+    </div>
+  </div>
+</footer>

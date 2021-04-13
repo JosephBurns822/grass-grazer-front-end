@@ -1,0 +1,27 @@
+mat-card-title {
+  text-align: center;
+  padding-top: 2%;
+}
+
+.container-sm {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+footerRow {
+  padding-left: 10%;
+}
+
+#contactInfo {
+  text-align: center;
+  padding-top: 8%;
+}
+
+#leaf {
+  padding-top: 5%;
+  padding-right: 12%;
+  padding-bottom: 25%;
+}
